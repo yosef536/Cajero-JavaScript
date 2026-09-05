@@ -2,6 +2,8 @@
 // Objeto para guardar la cuenta creada
 let usuarioRegistrado = null;
 let passwordRegistrada = null;
+let correoRegistrado = null;
+let identificacionRegistrada = null;
 let menu = true;
 
 alert("Bienvenido a , Mi Plata, el mejor banco del mundo")
@@ -30,6 +32,8 @@ while (menu) {
 
             localStorage.setItem("nombre", usuarioRegistrado = prompt("Crea tu nombre de usuario:"));
             localStorage.setItem("contraseña", passwordRegistrada = prompt("Crea tu contraseña:"));
+            localStorage.setItem("correo", correoRegistrado = prompt("Crea tu correo:"));
+            localStorage.setItem("id", identificacionRegistradaRegistrada = prompt("Digita tu identificacion:"));
 
             alert("¡Registro exitoso!");
             break;
@@ -118,8 +122,6 @@ function menuCuenta() {
 
         dineroCuenta += consDinero; // ---> Acumulador
 
-        localStorage.setItem("plataCuenta", consDinero); // --> se guarda en localStorage
-
         if (dineroCuenta >= 1000000) {
             alert("Tu saldo actual es de: " + dineroCuenta + " de " + "pesos");
         } else {
@@ -153,7 +155,7 @@ function menuCuenta() {
     // 3. Retirar
     function retirar() {
         let montoRetirar = Number(prompt("Digite la cantidad de dinero que quiere retirar"));
-
+        
         // validacion 
         if (dineroCuenta < montoRetirar) {
             alert("El monto a retirar es mayor al dinero de la cuenta");
@@ -188,7 +190,7 @@ function menuCuenta() {
         let historial = "----- Historial de Movimientos -----\n";
         for (let i = 0; i < movimientos.length; i++) { // ---> el for recorre el array
             let mov = movimientos[i];
-            historial += `${i + 1}. [${mov.fecha}] ${mov.tipo}: $${mov.monto} pesos\n`; // fecha, tipo, monto
+            historial += `${i + 1}. \n Fecha: [${mov.fecha}] \n Tipo: ${mov.tipo} \n Monto: ${mov.monto} pesos\n`; // fecha, tipo, monto
         }
         alert(historial);
     }
